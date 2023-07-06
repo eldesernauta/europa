@@ -1,10 +1,22 @@
-@import url('./fonts/soligant/Soligant.ttf');
-
 @import 'tailwindcss/base';
 
 body {
     @apply m-0 p-0 overflow-hidden
 }
 
+::selection {
+    @apply bg-neutral-900 text-neutral-100
+}
+
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@font-face {
+    font-family: Soligant;
+    src: url("./fonts/soligant/Soligant.otf") format("opentype");
+}
+
+@font-face {
+    font-family: Arual;
+    src: url("./fonts/arual/Arual.ttf") format("truetype");
+}
