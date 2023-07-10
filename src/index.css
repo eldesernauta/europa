@@ -5,7 +5,12 @@ body {
 }
 
 ::selection {
-    @apply bg-neutral-900 text-neutral-100
+    text-shadow: -1px 1px 0 #38b899,
+        1px 1px 0 #b23a3a,
+        1px -1px 0 #a9c328,
+        -1px -1px 0 #aa4396;
+
+    @apply text-neutral-100
 }
 
 @import 'tailwindcss/components';
@@ -17,6 +22,6 @@ body {
 }
 
 @font-face {
-    font-family: Arual;
-    src: url("./fonts/arual/Arual.ttf") format("truetype");
+    font-family: Quizma;
+    src: url("./fonts/quizma/Quizma_Light_Demo.otf") format("opentype");
 }

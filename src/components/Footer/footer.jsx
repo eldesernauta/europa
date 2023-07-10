@@ -1,22 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-const Footer = ({ onCityChange }) => {
-  const cities = [
-    "Barcelona",
-    "Madrid",
-    "Toledo",
-    "Paris",
-    "Brujas",
-    "Amsterdam",
-    "Roma",
-  ];
-
-  const [activeCity, setActiveCity] = useState("");
+const Footer = ({ onCityChange, activeCity }) => {
+  const cities = ["BCN", "MAD", "TOL", "PAR", "BGS", "XXX", "ROM"];
 
   const handleCityClick = (city) => {
     onCityChange(city);
-    setActiveCity(city);
   };
 
   const handleCityHover = (event) => {
@@ -24,8 +13,8 @@ const Footer = ({ onCityChange }) => {
 
     gsap.to(border, {
       scaleX: 1,
-      transformOrigin: "center",
-      duration: 0.3,
+      transformOrigin: "left center",
+      duration: 0.5,
       ease: "power2.out",
     });
   };
@@ -35,8 +24,8 @@ const Footer = ({ onCityChange }) => {
 
     gsap.to(border, {
       scaleX: 0,
-      transformOrigin: "center",
-      duration: 0.3,
+      transformOrigin: "left center",
+      duration: 0.5,
       ease: "power2.out",
     });
   };
@@ -51,13 +40,14 @@ const Footer = ({ onCityChange }) => {
               onClick={() => handleCityClick(city)}
               onMouseEnter={handleCityHover}
               onMouseLeave={handleCityLeave}
-              className={`cursor-pointer font-Arual text-neutral-900 dark:text-neutral-100 ${
+              className={`cursor-pointer font-Quizma tracking-widest text-neutral-900 dark:text-neutral-100 ${
                 activeCity === city
-                  ? "border-b-2 border-solid border-neutral-900 dark:border-neutral-100 city-border"
+                  ? "border-b border-solid border-neutral-900 dark:border-neutral-100 city-border"
                   : ""
               }`}
             >
               {city}
+              <span className="city-border absolute bottom-0 left-0 w-full h-0 border-b border-solid border-neutral-900 dark:border-neutral-100"></span>
             </li>
           ))}
         </ul>

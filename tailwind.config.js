@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Soligant: ['Soligant', 'serif'],
-        Arual: ['Arual', 'sans-serif'],
+        Quizma: ['Quizma', 'sans-serif'],
       },
     },
   },
