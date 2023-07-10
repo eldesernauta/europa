@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="h-screen bg-neutral-100 dark:bg-neutral-900 transition duration-300">
-      <NavBar onCityChange={handleCityChange} />
+      <NavBar onCityChange={handleCityChange} className="z-50" />
       {currentCity === "BCN" && <ImageCarouselBCN />}
       {currentCity === "MAD" && <ImageCarouselMAD />}
       {currentCity === "TOL" && <ImageCarouselTOL />}

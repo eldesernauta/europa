@@ -31,9 +31,9 @@ const Footer = ({ onCityChange, activeCity }) => {
   };
 
   return (
-    <footer className="w-full pb-5 absolute bottom-0 left-0">
+    <footer className="w-full pt-3 pb-5 absolute bottom-0 left-0 bg-neutral-100 dark:bg-neutral-900">
       <nav>
-        <ul className="container mx-auto flex justify-center items-center gap-7">
+        <ul className="container mx-auto flex justify-center items-center gap-3 sm:gap-7">
           {cities.map((city, index) => (
             <li
               key={index}

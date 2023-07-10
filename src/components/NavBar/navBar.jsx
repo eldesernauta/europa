@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faCaretRight, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import DarkModeButton from "../DarkModeButton/darkModeButton";
+import { Tooltip } from "react-tooltip";
 
 import NavbarButton from "./NavBarButton/navBarButton";
 
@@ -39,10 +40,10 @@ const NavBar = ({ onCityChange }) => {
       gsap.to(dropdown, {
         maxHeight: "10rem",
         duration: 0.3,
-        ease: "circ.out",
+        ease: "bounce.out",
       });
     } else {
-      gsap.to(dropdown, { maxHeight: 0, duration: 0.3, ease: "circ.out" });
+      gsap.to(dropdown, { maxHeight: 0, duration: 0.3, ease: "bounce.out" });
     }
   };
 
@@ -75,14 +76,14 @@ const NavBar = ({ onCityChange }) => {
   ];
 
   return (
-    <nav className="container mx-auto py-3 flex flex-col md:flex-row justify-between gap-3 md:gap-0 items-center text-white px-0 md:px-5 2xl:px-0">
+    <nav className="container mx-auto py-3 flex justify-between gap-3 md:gap-0 items-center text-white px-0 md:px-5 2xl:px-0 z-50">
       <NavbarButton action={handleToggleMenu} showMenu={showMenu} />
       <div
         ref={menuRef}
         className="fixed inset-y-0 left-0 box-border flex flex-col bg-neutral-200 dark:bg-neutral-700 w-[calc(100%-15px)] md:w-64 xl:w-96 p-6 text-white z-50 justify-between items-start transition duration-300"
       >
         <button
-          className="text-neutral-100 dark:text-neutral-900 font-bold text-lg mb-4 absolute top-4 right-4 block 2xl:hidden"
+          className="text-neutral-900 dark:text-neutral-100 font-bold text-lg mb-4 absolute top-4 right-4 block 2xl:hidden"
           onClick={handleToggleMenu}
         >
           &#10005;
@@ -147,7 +148,15 @@ const NavBar = ({ onCityChange }) => {
           </ul>
         </div>
       </div>
-      <h1 className="text-6xl text-neutral-500 font-Soligant">Europa</h1>
+      <h1
+        className="text-6xl text-neutral-500 font-Soligant"
+        data-tooltip-id="my-tooltip"
+        data-tooltip-content="Hello world!"
+      >
+        Europa
+      </h1>
+
+      <Tooltip id="my-tooltip" />
       <DarkModeButton />
     </nav>
   );
