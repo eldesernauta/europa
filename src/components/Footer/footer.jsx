@@ -9,7 +9,7 @@ const Footer = ({ onCityChange, activeCity }) => {
   };
 
   const handleCityHover = (event) => {
-    const border = event.target.querySelector(".city-border");
+    const border = event.currentTarget.querySelector(".city-border");
 
     gsap.to(border, {
       scaleX: 1,
@@ -20,7 +20,7 @@ const Footer = ({ onCityChange, activeCity }) => {
   };
 
   const handleCityLeave = (event) => {
-    const border = event.target.querySelector(".city-border");
+    const border = event.currentTarget.querySelector(".city-border");
 
     gsap.to(border, {
       scaleX: 0,
@@ -29,6 +29,16 @@ const Footer = ({ onCityChange, activeCity }) => {
       ease: "power2.out",
     });
   };
+
+  useEffect(() => {
+    const activeCityElement = document.querySelector(
+      `.city-border[data-city="${activeCity}"]`
+    );
+
+    if (activeCityElement) {
+      gsap.set(activeCityElement, { scaleX: 1 });
+    }
+  }, [activeCity]);
 
   return (
     <footer className="w-full pt-3 pb-5 absolute bottom-0 left-0 bg-neutral-100 dark:bg-neutral-900">
@@ -40,14 +50,19 @@ const Footer = ({ onCityChange, activeCity }) => {
               onClick={() => handleCityClick(city)}
               onMouseEnter={handleCityHover}
               onMouseLeave={handleCityLeave}
-              className={`cursor-pointer font-Quizma tracking-widest text-neutral-900 dark:text-neutral-100 ${
+              className={`relative cursor-pointer font-Quizma tracking-widest text-neutral-900 dark:text-neutral-100 ${
                 activeCity === city
-                  ? "border-b border-solid border-neutral-900 dark:border-neutral-100 city-border"
+                  ? "border-b border-solid border-neutral-900 dark:border-neutral-100"
                   : ""
               }`}
             >
               {city}
-              <span className="city-border absolute bottom-0 left-0 w-full h-0 border-b border-solid border-neutral-900 dark:border-neutral-100"></span>
+              <span
+                className={`city-border absolute bottom-0 left-0 w-full h-0 border-b border-solid border-neutral-900 dark:border-neutral-100 ${
+                  activeCity === city ? "scale-x-100 hidden" : "scale-x-0"
+                }`}
+                data-city={city}
+              ></span>
             </li>
           ))}
         </ul>

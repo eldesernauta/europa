@@ -20,8 +20,6 @@ function App() {
     setActiveCity(city);
   };
 
-
-
   return (
     <div className="h-screen bg-neutral-100 dark:bg-neutral-900 transition duration-300">
       <NavBar onCityChange={handleCityChange} className="z-50" />

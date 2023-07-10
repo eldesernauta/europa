@@ -12,9 +12,26 @@ import { Tooltip } from "react-tooltip";
 
 import NavbarButton from "./NavBarButton/navBarButton";
 
+var phrases = [
+  `"Europa no es solo un lugar geográfico, es una idea, un sueño; un sueño de esos que también pueden convertirse en pesadillas"`,
+  `"En Europa, los amantes se besan en los trenes mientras las balas pasan volando"`,
+  `"El amor y la tragedia están entrelazados en un baile eterno, como las vías del tren que cruzan el continente"`,
+  `"La historia de Europa es la historia de los perdedores, de aquellos que luchan y sufren en silencio"`,
+  `"En Europa, las fronteras son invisibles pero aún así nos separan, nos dividen y nos enfrentan"`,
+  `"El pasado nunca desaparece en Europa, siempre está presente, acechando en las sombras y recordando los errores"`,
+  `"En Europa, la belleza y la destrucción coexisten en perfecta armonía - Es un equilibrio frágil que se rompe con facilidad"`,
+  `"Europa es un rompecabezas complejo, una amalgama de culturas, idiomas y tradiciones - Pero, al final, todos somos seres humanos en busca de conexión y significado"`,
+];
+
+const getRandomPhrase = () => {
+  const randomIndex = Math.floor(Math.random() * phrases.length);
+  return phrases[randomIndex];
+};
+
 const NavBar = ({ onCityChange }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [tooltipContent, setTooltipContent] = useState(getRandomPhrase());
 
   const menuRef = useRef(null);
   const dropdownRef = useRef(null);
@@ -58,6 +75,15 @@ const NavBar = ({ onCityChange }) => {
     console.log(city);
   };
 
+  const handleMouseEnter = () => {
+    setTooltipContent(getRandomPhrase());
+    gsap.to(".tooltip", { opacity: 1, duration: 0.3 });
+  };
+
+  const handleMouseLeave = () => {
+    gsap.to(".tooltip", { opacity: 0, duration: 0.3 });
+  };
+
   const cities = [
     { name: "Barcelona", code: "BCN" },
     { name: "Madrid", code: "MAD" },
@@ -70,13 +96,13 @@ const NavBar = ({ onCityChange }) => {
 
   const otherSites = [
     { name: "Portafolio", url: "https://eldesernauta.com" },
+    { name: "Fotografía", url: "https://ph.eldesernauta.com" },
     { name: "Maremoto", url: "https://maremoto.eldesernauta.com" },
     { name: "Tfish", url: "https://ph.eldesernauta.com/tfish" },
-    { name: "Más fotos", url: "https://ph.eldesernauta.com" },
   ];
 
   return (
-    <nav className="container mx-auto py-3 flex justify-between gap-3 md:gap-0 items-center text-white px-0 md:px-5 2xl:px-0 z-50">
+    <nav className="container mx-auto py-3 px-3 flex justify-between gap-3 md:gap-0 items-center text-white px-0 md:px-5 2xl:px-0 z-50">
       <NavbarButton action={handleToggleMenu} showMenu={showMenu} />
       <div
         ref={menuRef}
@@ -93,14 +119,14 @@ const NavBar = ({ onCityChange }) => {
             <li
               key={index}
               onClick={() => handleCityClick(city.code)}
-              className="mb-2 cursor-pointer tracking-widest"
+              className="mb-2 w-full cursor-pointer tracking-widest"
             >
               {city.name}
             </li>
           ))}
           <li
             onClick={handleToggleDropdown}
-            className="mb-2 cursor-pointer tracking-widest flex gap-3 items-center"
+            className="mb-2 w-full cursor-pointer tracking-widest flex gap-3 items-center"
           >
             Otros sitios{" "}
             {showDropdown ? (
@@ -125,7 +151,7 @@ const NavBar = ({ onCityChange }) => {
             ))}
           </ul>
         </ul>
-        <div className="w-full flex flex-col gap-5">
+        <div className="w-full flex flex-col gap-3">
           <ul className="w-full flex justify-center items-center gap-3">
             <li className="mx-2 text-neutral-900 dark:text-neutral-100 cursor-pointer transition duration-500">
               <a href="https://github.com/eldesernauta/" target="_blank">
@@ -146,17 +172,30 @@ const NavBar = ({ onCityChange }) => {
               </a>
             </li>
           </ul>
+          <p className="text-xs text-center font-Quizma text-neutral-900 dark:text-neutral-100">
+            {" "}
+            2023 <span>©</span> eldesernauta
+          </p>
         </div>
       </div>
       <h1
-        className="text-6xl text-neutral-500 font-Soligant"
-        data-tooltip-id="my-tooltip"
-        data-tooltip-content="Hello world!"
+        className="text-6xl text-neutral-500 font-Soligant cursor-pointer"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         Europa
       </h1>
-
-      <Tooltip id="my-tooltip" />
+      <Tooltip
+        className="z-50 font-Quizma tooltip"
+        style={{
+          fontSize: "10px",
+          width: "200px",
+          textAlign: "center",
+          opacity: 0,
+        }}
+      >
+        {tooltipContent}
+      </Tooltip>
       <DarkModeButton />
     </nav>
   );
