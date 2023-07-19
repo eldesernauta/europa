@@ -25,3 +25,12 @@ body {
     font-family: Quizma;
     src: url("./fonts/quizma/Quizma_Light_Demo.otf") format("opentype");
 }
+
+.fade-enter {
+    opacity: 0;
+}
+
+.fade-enter-active {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}

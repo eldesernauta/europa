@@ -102,7 +102,7 @@ const NavBar = ({ onCityChange }) => {
   ];
 
   return (
-    <nav className="container mx-auto py-3 px-3 flex justify-between gap-3 md:gap-0 items-center text-white px-0 md:px-5 2xl:px-0 z-50">
+    <nav className="container mx-auto pt-3 pb-0 md:mb-3 px-3 flex justify-between gap-3 md:gap-0 items-center text-white px-0 md:px-5 2xl:px-0 z-50">
       <NavbarButton action={handleToggleMenu} showMenu={showMenu} />
       <div
         ref={menuRef}

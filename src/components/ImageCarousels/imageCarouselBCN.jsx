@@ -42,8 +42,8 @@ const Carousel = () => {
   };
 
   return (
-    <div className="h-5/6 flex justify-center items-center overflow-hidden p-0 md:p-5">
-      <div className="relative h-auto lg:h-full container mx-auto flex justify-center transition-transform duration-500">
+    <div className="h-[calc(100vh-141px)] flex justify-center items-center overflow-hidden px-0 md:px-5">
+      <div className="relative h-auto lg:h-full container mx-auto flex justify-center items-stretch transition-transform duration-500">
         <img
           src={currentImage}
           alt="Carousel Image"

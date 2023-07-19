@@ -50,19 +50,13 @@ const Footer = ({ onCityChange, activeCity }) => {
               onClick={() => handleCityClick(city)}
               onMouseEnter={handleCityHover}
               onMouseLeave={handleCityLeave}
-              className={`relative cursor-pointer font-Quizma tracking-widest text-neutral-900 dark:text-neutral-100 ${
+              className={`city-border relative cursor-pointer font-Quizma tracking-widest text-neutral-900 dark:text-neutral-100 ${
                 activeCity === city
                   ? "border-b border-solid border-neutral-900 dark:border-neutral-100"
                   : ""
               }`}
             >
               {city}
-              <span
-                className={`city-border absolute bottom-0 left-0 w-full h-0 border-b border-solid border-neutral-900 dark:border-neutral-100 ${
-                  activeCity === city ? "scale-x-100 hidden" : "scale-x-0"
-                }`}
-                data-city={city}
-              ></span>
             </li>
           ))}
         </ul>
