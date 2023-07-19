@@ -38,7 +38,7 @@ function App() {
         .call(() => {
           setCurrentCity(activeCity);
         })
-        .to('.image-carousel', { y: '0%', duration: 0.5, ease: 'power2.inOut' })
+        .to('.image-carousel', { y: '0%', duration: 0.5, ease: 'power3.out' })
         .call(() => {
           setIsTransitioning(false);
         });
