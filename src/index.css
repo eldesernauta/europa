@@ -5,10 +5,10 @@ body {
 }
 
 ::selection {
-    text-shadow: -1px 1px 0 #38b899,
-        1px 1px 0 #b23a3a,
-        1px -1px 0 #a9c328,
-        -1px -1px 0 #aa4396;
+    text-shadow: -1px 1px 0 #1a2634,
+        1px 1px 0 #203e5f,
+        1px -1px 0 #ffcc00,
+        -1px -1px 0 #fee5b1;
 
     @apply text-neutral-100
 }

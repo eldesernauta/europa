@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
 import { gsap } from "gsap";
-import image1 from "../../images/_MG_5628-positive-2.jpg";
-import image2 from "../../images/_MG_5607-positive-2.jpg";
+import image1 from "../../images/par_1.jpg";
+import image2 from "../../images/par_2.jpg";
+import image3 from "../../images/par_3.jpg";
 
 const Carousel = () => {
   const [currentImage, setCurrentImage] = useState(image1);
   const imageRef = useRef(null);
 
-  const images = [image1, image2];
+  const images = [image1, image2, image3];
 
   const handleImageClick = () => {
     const currentIndex = images.indexOf(currentImage);
@@ -46,7 +47,7 @@ const Carousel = () => {
         <img
           src={currentImage}
           alt="Carousel Image"
-          className="carousel-image cursor-pointer w-full"
+          className="carousel-image cursor-pointer"
           onClick={handleImageClick}
           onLoad={handleImageLoad}
           ref={imageRef}

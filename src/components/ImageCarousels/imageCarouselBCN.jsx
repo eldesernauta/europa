@@ -47,7 +47,7 @@ const Carousel = () => {
         <img
           src={currentImage}
           alt="Carousel Image"
-          className="carousel-image cursor-pointer w-full"
+          className="carousel-image cursor-pointer "
           onClick={handleImageClick}
           onLoad={handleImageLoad}
           ref={imageRef}

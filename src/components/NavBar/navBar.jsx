@@ -180,12 +180,15 @@ const NavBar = ({ onCityChange }) => {
       </div>
       <h1
         className="text-6xl text-neutral-500 font-Soligant cursor-pointer"
+        data-tooltip-id="my-tooltip"
+        data-tooltip-content={handleMouseEnter}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         Europa
       </h1>
       <Tooltip
+        id="my-tooltip"
         className="z-50 font-Quizma tooltip"
         style={{
           fontSize: "10px",
