@@ -1,25 +1,39 @@
 import React, { useState, useRef } from "react";
 import { gsap } from "gsap";
-import image1 from "../../images/bcn_1.jpg";
-import image2 from "../../images/bcn_2.jpg";
-import image3 from "../../images/bcn_3.jpg";
+
+const imageUrls = [
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904033/NEF_6196_z8upze.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904035/NEF_6186_vzrbyx.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904035/NEF_6192_awickx.jpg",
+
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904033/NEF_6197_pedvhd.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6203_ehsk78.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904033/NEF_6206_qekvmt.jpg",
+
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904033/NEF_6208_ohyps3.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904033/NEF_6219_kdcqmd.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6229_odw7tj.jpg",
+
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6278_ltvasn.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6282_d6zvvo.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6287_szjjfw.jpg",
+
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6296_pb7lro.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904035/NEF_6316_xomb8l.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904036/NEF_6320_cezkio.jpg",
+];
 
 const Carousel = () => {
-  const [currentImage, setCurrentImage] = useState(image1);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const imageRef = useRef(null);
 
-  const images = [image1, image2, image3];
-
   const handleImageClick = () => {
-    const currentIndex = images.indexOf(currentImage);
-    const nextIndex = (currentIndex + 1) % images.length;
-    const nextImage = images[nextIndex];
-
+    const nextIndex = (currentImageIndex + 1) % imageUrls.length;
     gsap.to(".carousel-image", {
       opacity: 0,
       duration: 0.5,
       onComplete: () => {
-        setCurrentImage(nextImage);
+        setCurrentImageIndex(nextIndex);
         gsap.fromTo(
           ".carousel-image",
           { opacity: 0 },
@@ -45,9 +59,9 @@ const Carousel = () => {
     <div className="h-[calc(100vh-141px)] flex justify-center items-center overflow-hidden px-0 md:px-5">
       <div className="relative h-auto lg:h-full container mx-auto flex justify-center items-stretch transition-transform duration-500">
         <img
-          src={currentImage}
+          src={imageUrls[currentImageIndex]}
           alt="Carousel Image"
-          className="carousel-image cursor-pointer "
+          className="carousel-image cursor-pointer"
           onClick={handleImageClick}
           onLoad={handleImageLoad}
           ref={imageRef}
