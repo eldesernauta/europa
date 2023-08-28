@@ -2,11 +2,18 @@ import React, { useState, useRef } from "react";
 import { gsap } from "gsap";
 
 const imageUrls = [
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690908639/NEF_6696_f9ll4t.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690908639/NEF_6704_ludxyj.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690908639/NEF_6697_v3gqsv.jpg",
-  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690908639/NEF_6726_k2yghk.jpg",
-  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690908639/NEF_6696_f9ll4t.jpg",
+
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1693250136/NEF_6719_xjl7oq.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690908639/NEF_6725_rir1ub.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1690908639/NEF_6726_k2yghk.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1693250138/NEF_6734_riegma.jpg",
+
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1693250139/NEF_6737_z5vsh8.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1693250138/NEF_6740_ewanq3.jpg",
+  "https://res.cloudinary.com/de9uql5fm/image/upload/v1693250138/NEF_6749_p3iw25.jpg",
 ];
 
 const Carousel = () => {
@@ -17,13 +24,13 @@ const Carousel = () => {
     const nextIndex = (currentImageIndex + 1) % imageUrls.length;
     gsap.to(".carousel-image", {
       opacity: 0,
-      duration: 0.5,
+      duration: 1,
       onComplete: () => {
         setCurrentImageIndex(nextIndex);
         gsap.fromTo(
           ".carousel-image",
           { opacity: 0 },
-          { opacity: 1, duration: 0.5, delay: 0.1 }
+          { opacity: 1, duration: 1, delay: 0.1 }
         );
       },
     });

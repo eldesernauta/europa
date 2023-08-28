@@ -109,7 +109,7 @@ const NavBar = ({ onCityChange }) => {
         className="fixed inset-y-0 left-0 box-border flex flex-col bg-neutral-200 dark:bg-neutral-700 w-[calc(100%-15px)] md:w-64 xl:w-96 p-6 text-white z-50 justify-between items-start transition duration-300"
       >
         <button
-          className="text-neutral-900 dark:text-neutral-100 font-bold text-lg mb-4 absolute top-4 right-4 block 2xl:hidden"
+          className="text-neutral-900 dark:text-neutral-100 font-bold text-lg mb-4 absolute top-4 right-4"
           onClick={handleToggleMenu}
         >
           &#10005;

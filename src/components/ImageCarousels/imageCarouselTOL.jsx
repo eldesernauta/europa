@@ -19,13 +19,13 @@ const Carousel = () => {
     const nextIndex = (currentImageIndex + 1) % imageUrls.length;
     gsap.to(".carousel-image", {
       opacity: 0,
-      duration: 0.5,
+      duration: 1,
       onComplete: () => {
         setCurrentImageIndex(nextIndex);
         gsap.fromTo(
           ".carousel-image",
           { opacity: 0 },
-          { opacity: 1, duration: 0.5, delay: 0.1 }
+          { opacity: 1, duration: 1, delay: 0.1 }
         );
       },
     });
