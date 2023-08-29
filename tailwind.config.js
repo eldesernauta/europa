@@ -10,6 +10,9 @@ module.exports = {
         Soligant: ['Soligant', 'serif'],
         Quizma: ['Quizma', 'sans-serif'],
       },
+      screens: {
+        'tall': { 'raw': '(min-height: 750px)' },
+      }
     },
   },
   plugins: [],

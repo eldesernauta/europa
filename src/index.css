@@ -34,3 +34,10 @@ body {
     opacity: 1;
     transition: opacity 1s ease-in-out;
 }
+
+/* Dentro de tu archivo CSS */
+@font-face {
+    font-family: 'Quizma Light';
+    src: url('./fonts/quizma/Quizma_Light_Demo.otf') format('opentype');
+    /* Otros estilos de fuente */
+}

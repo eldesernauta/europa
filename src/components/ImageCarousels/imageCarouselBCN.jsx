@@ -5,15 +5,15 @@ const imageUrls = [
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6296_pb7lro.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904033/NEF_6196_z8upze.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904035/NEF_6192_awickx.jpg",
-  
+
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904033/NEF_6197_pedvhd.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6203_ehsk78.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1693250677/NEF_6209_ajambs.png",
-  
+
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904033/NEF_6219_kdcqmd.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6229_odw7tj.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6278_ltvasn.jpg",
-  
+
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904035/NEF_6186_vzrbyx.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6282_d6zvvo.jpg",
   "https://res.cloudinary.com/de9uql5fm/image/upload/v1690904034/NEF_6287_szjjfw.jpg",
@@ -56,11 +56,11 @@ const Carousel = () => {
   };
 
   return (
-    <div className="h-[calc(100vh-141px)] flex justify-center items-center overflow-hidden px-0 md:px-5">
+    <div className="mt-1 h-[80vh] tall:h-[90vh] sm:h-[calc(100vh-141px)] flex justify-center items-center overflow-hidden px-0 md:px-5">
       <div className="relative h-auto lg:h-full container mx-auto flex justify-center items-stretch transition-transform duration-500">
         <img
           src={imageUrls[currentImageIndex]}
-          alt="Carousel Image"
+          alt="Carousel Item"
           className="carousel-image cursor-pointer"
           onClick={handleImageClick}
           onLoad={handleImageLoad}

@@ -11,7 +11,7 @@ module.exports = (env, argv) => {
     context: path.resolve(__dirname, 'src'),
     entry: './index.js',
     output: {
-      filename: 'tfish/bundle.js',
+      filename: 'europa/bundle.js',
       path: path.resolve(__dirname, 'build'),
       publicPath: '/',
     },
@@ -40,11 +40,15 @@ module.exports = (env, argv) => {
           },
         },
         {
-          test: /\.(woff|woff2|eot|ttf|otf)$/,
-          type: 'asset/resource',
-          generator: {
-            filename: 'fonts/[name][ext]',
-          },
+          test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+          use: [{
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+              publicPath: '../fonts/'
+            }
+          }]
         },
         {
           test: /\.css$/,
@@ -79,8 +83,8 @@ module.exports = (env, argv) => {
         manifest: path.resolve(__dirname, 'public/manifest.json'),
       }),
       new MiniCssExtractPlugin({
-        filename: 'tfish/[name].css',
-        chunkFilename: 'tfish/[id].css',
+        filename: 'europa/[name].css',
+        chunkFilename: 'europa/[id].css',
       }),
     ],
     optimization: {

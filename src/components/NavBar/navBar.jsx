@@ -179,7 +179,7 @@ const NavBar = ({ onCityChange }) => {
         </div>
       </div>
       <h1
-        className="text-6xl text-neutral-500 font-Soligant cursor-pointer"
+        className="text-6xl text-neutral-500 font-Soligant hover:cursor-context-menu"
         data-tooltip-id="my-tooltip"
         data-tooltip-content={handleMouseEnter}
         onMouseEnter={handleMouseEnter}
@@ -191,7 +191,7 @@ const NavBar = ({ onCityChange }) => {
         id="my-tooltip"
         className="z-50 font-Quizma tooltip"
         style={{
-          fontSize: "10px",
+          fontSize: "12px",
           width: "200px",
           textAlign: "center",
           opacity: 0,
