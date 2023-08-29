@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const Footer = ({ onCityChange, activeCity }) => {
-  const cities = ["BCN", "MAD", "TOL", "PAR", "BGS", "XXX", "ROM"];
+  const cities = ["XXX", "BGS", "PAR", "MAD", "TOL", "BCN", "ROM"];
 
   const handleCityClick = (city) => {
     onCityChange(city);

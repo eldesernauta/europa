@@ -137,13 +137,13 @@ const NavBar = ({ onCityChange }) => {
           </li>
           <ul
             ref={dropdownRef}
-            className="overflow-hidden transition-max-height duration-300 ease-in-out pl-5"
+            className="w-60 overflow-hidden transition-max-height duration-300 ease-in-out pl-5"
             style={{ maxHeight: 0 }}
           >
             {otherSites.map((site, index) => (
               <li
                 key={index}
-                className="mb-2 cursor-pointer tracking-widest"
+                className="mb-2 w-full cursor-pointer tracking-widest"
                 onClick={() => window.open(site.url, "_blank")}
               >
                 {site.name}

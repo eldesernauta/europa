@@ -43,10 +43,8 @@ const Carousel = () => {
     const img = imageRef.current;
 
     if (img.naturalWidth > img.naturalHeight) {
-      img.classList.remove("object-contain");
-      img.classList.add("object-cover");
+      img.classList.add("object-contain");
     } else {
-      img.classList.remove("object-cover");
       img.classList.add("object-contain");
     }
   };

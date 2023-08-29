@@ -16,7 +16,7 @@ import Footer from './components/Footer/footer';
 
 function App() {
   const [activeCity, setActiveCity] = useState("");
-  const [currentCity, setCurrentCity] = useState("BCN");
+  const [currentCity, setCurrentCity] = useState("XXX");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -34,11 +34,11 @@ function App() {
   useEffect(() => {
     if (isTransitioning) {
       const timeline = gsap.timeline();
-      timeline.to('.image-carousel', { y: '100%', duration: 0.5, ease: 'power2.inOut' })
+      timeline.to('.image-carousel', { y: '100%', duration: 1, ease: 'power2.inOut' })
         .call(() => {
           setCurrentCity(activeCity);
         })
-        .to('.image-carousel', { y: '0%', duration: 0.5, ease: 'power3.out' })
+        .to('.image-carousel', { y: '0%', duration: 1, ease: 'power3.out' })
         .call(() => {
           setIsTransitioning(false);
         });
@@ -54,12 +54,12 @@ function App() {
       <div className="h-screen bg-neutral-100 dark:bg-neutral-900 transition duration-300">
         <NavBar onCityChange={handleCityChange} className="z-50" />
         <div className="image-carousel">
-          {currentCity === "BCN" && <ImageCarouselBCN />}
+          {currentCity === "XXX" && <ImageCarouselXXX />}
+          {currentCity === "BGS" && <ImageCarouselBGS />}
+          {currentCity === "PAR" && <ImageCarouselPAR />}
           {currentCity === "MAD" && <ImageCarouselMAD />}
           {currentCity === "TOL" && <ImageCarouselTOL />}
-          {currentCity === "PAR" && <ImageCarouselPAR />}
-          {currentCity === "BGS" && <ImageCarouselBGS />}
-          {currentCity === "XXX" && <ImageCarouselXXX />}
+          {currentCity === "BCN" && <ImageCarouselBCN />}
           {currentCity === "ROM" && <ImageCarouselROM />}
         </div>
         <Footer activeCity={activeCity} onCityChange={handleCityChange} />
