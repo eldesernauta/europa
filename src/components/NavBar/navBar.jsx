@@ -85,12 +85,12 @@ const NavBar = ({ onCityChange }) => {
   };
 
   const cities = [
-    { name: "Barcelona", code: "BCN" },
+    { name: "Amsterdam", code: "XXX" },
+    { name: "Brujas", code: "BGS" },
+    { name: "Paris", code: "PAR" },
     { name: "Madrid", code: "MAD" },
     { name: "Toledo", code: "TOL" },
-    { name: "Paris", code: "PAR" },
-    { name: "Brujas", code: "BGS" },
-    { name: "Amsterdam", code: "XXX" },
+    { name: "Barcelona", code: "BCN" },
     { name: "Roma", code: "ROM" },
   ];
 
@@ -179,7 +179,7 @@ const NavBar = ({ onCityChange }) => {
         </div>
       </div>
       <h1
-        className="text-6xl text-neutral-500 font-Soligant hover:cursor-context-menu"
+        className="text-6xl text-neutral-500 font-Soligant hover:cursor-pointer uppercase"
         data-tooltip-id="my-tooltip"
         data-tooltip-content={handleMouseEnter}
         onMouseEnter={handleMouseEnter}
